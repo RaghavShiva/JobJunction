@@ -9,7 +9,7 @@ import morgan from 'morgan'
 import testroute from './routes/testroutes.js'
 import authRoutes from './routes/authroutes.js'
 import errormiddleware from './middlewares/errormiddleware.js'
-
+import userRoutes from './routes/userroutes.js'
 dotenv.config()
 connectDB()
 const app = express()
@@ -19,6 +19,7 @@ app.use(cors())
 app.use(morgan('dev'))
 app.use('/api/v1/test', testroute)
 app.use('/api/v1/auth', authRoutes)
+app.use('/api/v1/user', userRoutes)
 
 // validation middleware
 app.use(errormiddleware)
