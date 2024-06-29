@@ -32,4 +32,5 @@ export const registercont = async (req, res, next) => {
     })
 }
 
+export const loginController = () => { }
 
