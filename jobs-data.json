@@ -59,7 +59,7 @@
             "$oid": "668137ccfe8ffe2ed1eeaabc"
         },
         "workLocation": "Thailand",
-        "workType": "contaract",
+        "workType": "contract",
         "status": "interview",
         "position": "Compensation Analyst",
         "company": "Mita"
@@ -72,7 +72,7 @@
             "$oid": "668137ccfe8ffe2ed1eeaabc"
         },
         "workLocation": "Poland",
-        "workType": "contaract",
+        "workType": "contract",
         "status": "reject",
         "position": "Design Engineer",
         "company": "Devpulse"
@@ -85,7 +85,7 @@
             "$oid": "668137ccfe8ffe2ed1eeaabc"
         },
         "workLocation": "Colombia",
-        "workType": "contaract",
+        "workType": "contract",
         "status": "pending",
         "position": "Administrative Assistant III",
         "company": "Twitternation"
@@ -410,7 +410,7 @@
             "$oid": "668137ccfe8ffe2ed1eeaabc"
         },
         "workLocation": "Democratic Republic of the Congo",
-        "workType": "contaract",
+        "workType": "contract",
         "status": "reject",
         "position": "Software Engineer II",
         "company": "Photospace"
@@ -501,7 +501,7 @@
             "$oid": "668137ccfe8ffe2ed1eeaabc"
         },
         "workLocation": "Philippines",
-        "workType": "contaract",
+        "workType": "contract",
         "status": "interview",
         "position": "Electrical Engineer",
         "company": "Meedoo"
@@ -540,7 +540,7 @@
             "$oid": "668137ccfe8ffe2ed1eeaabc"
         },
         "workLocation": "China",
-        "workType": "contaract",
+        "workType": "contract",
         "status": "reject",
         "position": "Sales Associate",
         "company": "Mita"
@@ -618,7 +618,7 @@
             "$oid": "668137ccfe8ffe2ed1eeaabc"
         },
         "workLocation": "Indonesia",
-        "workType": "contaract",
+        "workType": "contract",
         "status": "reject",
         "position": "Office Assistant III",
         "company": "Gabspot"
@@ -631,7 +631,7 @@
             "$oid": "668137ccfe8ffe2ed1eeaabc"
         },
         "workLocation": "Belarus",
-        "workType": "contaract",
+        "workType": "contract",
         "status": "interview",
         "position": "Web Developer I",
         "company": "Wordify"
@@ -670,7 +670,7 @@
             "$oid": "668137ccfe8ffe2ed1eeaabc"
         },
         "workLocation": "Portugal",
-        "workType": "contaract",
+        "workType": "contract",
         "status": "reject",
         "position": "Programmer Analyst III",
         "company": "Wikibox"
@@ -709,7 +709,7 @@
             "$oid": "668137ccfe8ffe2ed1eeaabc"
         },
         "workLocation": "Ecuador",
-        "workType": "contaract",
+        "workType": "contract",
         "status": "interview",
         "position": "Software Consultant",
         "company": "Browsedrive"

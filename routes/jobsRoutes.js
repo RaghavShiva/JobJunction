@@ -1,12 +1,12 @@
 import express from 'express'
 import userAuth from '../middlewares/authmiddleware.js'
-import { createJobCont, deleteJobCont, getJobs, statsJobCont, updateJobs } from '../controllers/jobcont.js'
+import { createJobCont, deleteJobCont, getAllJobs, statsJobCont, updateJobs } from '../controllers/jobcont.js'
 
 const router = express.Router()
 
 router.post('/create-job', userAuth, createJobCont)
 
-router.get('/get-job', userAuth, getJobs)
+router.get('/get-job', userAuth, getAllJobs)
 
 router.patch('/update-job/:id', userAuth, updateJobs)
 

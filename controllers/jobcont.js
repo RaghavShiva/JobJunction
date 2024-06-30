@@ -12,8 +12,43 @@ export const createJobCont = async (req, res, next) => {
 }
 
 //get fn
-export const getJobs = async (req, res, next) => {
-    const jobs = await jobsModel.find({ createdBy: req.user.userId })
+export const getAllJobs = async (req, res, next) => {
+    // const jobs = await jobsModel.find({ createdBy: req.user.userId })
+    const { status, workType, search, sort } = req.query
+    // condition
+    const queryobj = {
+        createdBy: req.user.userId
+    }
+    //logic filters
+    if (status && status !== 'all') {
+        queryobj.status = status
+    }
+    if (workType && workType !== 'all') {
+        queryobj.workType = workType
+    }
+    if (search) {
+        queryobj.position = { $regex: search, $options: 'i' }
+    }
+
+
+    let queryres = jobsModel.find(queryobj)
+
+    if (sort === 'latest') {
+        queryres = queryres.sort('-createdAt')
+    }
+    if (sort === 'oldest') {
+        queryres = queryres.sort('createdAt')
+    }
+    if (sort === 'a-z') {
+        queryres = queryres.sort('position')
+    }
+    if (sort === 'z-a') {
+        queryres = queryres.sort('-position')
+    }
+    const jobs = await queryres
+
+
+
     res.status(200).json({
         totalJobs: jobs.length,
         jobs
