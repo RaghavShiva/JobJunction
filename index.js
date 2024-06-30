@@ -9,6 +9,7 @@ import morgan from 'morgan'
 import testroute from './routes/testroutes.js'
 import authRoutes from './routes/authroutes.js'
 import errormiddleware from './middlewares/errormiddleware.js'
+import jobsRoutes from './routes/jobsRoutes.js'
 import userRoutes from './routes/userroutes.js'
 dotenv.config()
 connectDB()
@@ -20,7 +21,7 @@ app.use(morgan('dev'))
 app.use('/api/v1/test', testroute)
 app.use('/api/v1/auth', authRoutes)
 app.use('/api/v1/user', userRoutes)
-
+app.use('/api/v1/job',jobsRoutes)
 // validation middleware
 app.use(errormiddleware)
 
