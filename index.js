@@ -6,6 +6,10 @@ import connectDB from './config/db.js'
 import cors from 'cors'
 import morgan from 'morgan'
 
+import helmet from 'helmet'
+import xss from 'xss-clean'
+import mongoSanitize from 'express-mongo-sanitize'
+
 import testroute from './routes/testroutes.js'
 import authRoutes from './routes/authroutes.js'
 import errormiddleware from './middlewares/errormiddleware.js'
@@ -15,6 +19,9 @@ dotenv.config()
 connectDB()
 const app = express()
 
+app.use(helmet())
+app.use(xss())
+app.use(mongoSanitize())
 app.use(express.json())
 app.use(cors())
 app.use(morgan('dev'))
