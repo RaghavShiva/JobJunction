@@ -45,13 +45,22 @@ export const getAllJobs = async (req, res, next) => {
     if (sort === 'z-a') {
         queryres = queryres.sort('-position')
     }
+
+    const page = Number(req.query.page) || 1
+    const limit = Number(req.query.limit) || 10
+    const skip = (page - 1) * limit
+    queryres = queryres.skip(skip).limit(limit)
+    const totaljobs = await jobsModel.countDocuments(queryres)
+
+
     const jobs = await queryres
 
 
 
     res.status(200).json({
-        totalJobs: jobs.length,
-        jobs
+        totaljobs,
+        jobs,
+        page
     })
 }
 
