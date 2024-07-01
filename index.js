@@ -1,4 +1,6 @@
 import express from 'express'
+import swaggerUI from 'swagger-ui-express'
+import swaggerDoc from 'swagger-jsdoc'
 import 'express-async-errors'
 import dotenv from 'dotenv'
 import colors from 'colors'
@@ -17,6 +19,27 @@ import jobsRoutes from './routes/jobsRoutes.js'
 import userRoutes from './routes/userroutes.js'
 dotenv.config()
 connectDB()
+
+//swagger ui config
+
+const options = {
+    definition: {
+        openapi: "3.0.0",
+        info: {
+            title: 'Job Portal Application',
+            description: 'Full Stack web application'
+        },
+        servers: [
+            {
+                url: 'http://localhost:8000'
+            }
+        ]
+    },
+    apis: ['./routes/*.js']
+}
+const spec = swaggerDoc(options)
+
+
 const app = express()
 
 app.use(helmet())
@@ -28,10 +51,12 @@ app.use(morgan('dev'))
 app.use('/api/v1/test', testroute)
 app.use('/api/v1/auth', authRoutes)
 app.use('/api/v1/user', userRoutes)
-app.use('/api/v1/job',jobsRoutes)
+app.use('/api/v1/job', jobsRoutes)
+
+app.use('/api-doc', swaggerUI.serve, swaggerUI.setup(spec))
+
 // validation middleware
 app.use(errormiddleware)
-
 const port = process.env.PORT
 
 app.listen(port, () => {
