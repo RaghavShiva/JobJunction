@@ -1,24 +1,54 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
+import InputFrom from '../components/shared/inputform'
+
 
 const LoginPage = () => {
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        try {
+            console.log(email, password)
+        } catch (error) {
+            console.log(error)
+        }
+    }
     return (
         <>
-            <form>
-                <div className="mb-3">
-                    <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
-                    <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
-                    <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
-                </div>
-                <div className="mb-3">
-                    <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
-                    <input type="password" className="form-control" id="exampleInputPassword1" />
-                </div>
-                <div className="mb-3 form-check">
-                    <input type="checkbox" className="form-check-input" id="exampleCheck1" />
-                    <label className="form-check-label" htmlFor="exampleCheck1">Check me out</label>
-                </div>
-                <button type="submit" className="btn btn-primary">Submit</button>
-            </form>
+            <div className='login' onSubmit={handleSubmit}>
+                <form className='card p-2' >
+                    <img src='/assets/logo.png' alt='logo'
+                        height={150}
+                        width={400} />
+
+                    <InputFrom
+                        htmlFor="email"
+                        labelText={"Email"}
+                        type={"email"}
+                        value={email}
+                        handleChange={(e) => setEmail(e.target.value)}
+                        name="email"
+                    />
+                    <InputFrom
+                        htmlFor="password"
+                        labelText={"Password"}
+                        type={"password"}
+                        value={password}
+                        handleChange={(e) => setPassword(e.target.value)}
+                        name="password"
+                    />
+                    <div className='d-flex justify-content-between'>
+                        <p>
+                            New User <Link to='/register'>Register here</Link>{' '}
+                        </p>
+                        <button type="submit" className="btn btn-primary">
+                            Login
+                        </button>
+                    </div>
+                </form>
+            </div>
         </>
     )
 }

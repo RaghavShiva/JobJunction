@@ -1,88 +1,62 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import InputFrom from '../components/shared/inputform'
+
 const Register = () => {
-    // const [name, setName] = useState('')
-    // const [lastName, setLastName] = useState('')
-    // const [email, setEmail] = useState('')
-    // const [password, setPassword] = useState('')
-    const [values, setValues] = useState({
-        name: '',
-        lastName: ' ',
-        email: ' ',
-        password: ' '
-    })
+    const [name, setName] = useState('')
+    const [lastName, setLastName] = useState('')
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+
     const handleSubmit = (e) => {
         e.preventDefault()
         try {
-            console.log(values)
+            console.log(name, email, password, lastName)
         } catch (error) {
             console.log(error)
         }
     }
 
-    const handleChange = (e) => {
-        const value = e.target.value
-        setValues({
-            ...values,
-            [e.target.name]: value
-        })
-    }
 
     return (
         <>
-            <div className='register'>
-                <form className='card p-2' onSubmit={handleSubmit}>
-                    <img src='/logo192.png' alt='logo'
-                        height={300}
-                        width={400}></img>
-                    <div className="mb-1">
-                        <label htmlFor="name" className="form-label">
-                            Name</label>
-                        <input
-                            type="text"
-                            className="form-control"
-                            name="name"
-                            value={values.name}
-                            onChange={handleChange}
-                        />
-                    </div>
-
-                    <div className="mb-1">
-                        <label htmlFor="name" className="form-label">
-                            Last Name</label>
-                        <input
-                            type="text"
-                            className="form-control"
-                            name="lastName"
-                            value={values.lastName}
-                            onChange={handleChange}
-                        />
-                    </div>
-
-                    <div className="mb-1">
-                        <label htmlFor="email" className="form-label">
-                            Email Address</label>
-                        <input
-                            type="email"
-                            className="form-control"
-                            name="email"
-                            value={values.email}
-                            onChange={handleChange}
-                        />
-
-                    </div>
-
-                    <div className="mb-1">
-                        <label htmlFor="password" className="form-label">
-                            Password</label>
-                        <input type="password"
-                            className="form-control"
-                            name="password"
-                            value={values.password}
-                            onChange={handleChange}
-                        />
-                    </div>
-
+            <div className='register' onSubmit={handleSubmit}>
+                <form className='card p-2' >
+                    <img src='/assets/logo.png' alt='logo'
+                        height={150}
+                        width={400} />
+                    <InputFrom
+                        htmlFor="name"
+                        labelText={"Name"}
+                        type={"text"}
+                        value={name}
+                        handleChange={(e) => setName(e.target.value)}
+                        name="name"
+                    />
+                    <InputFrom
+                        htmlFor="lastName"
+                        labelText={"Last Name"}
+                        type={"text"}
+                        value={lastName}
+                        handleChange={(e) => setLastName(e.target.value)}
+                        name="lastName"
+                    />
+                    <InputFrom
+                        htmlFor="email"
+                        labelText={"Email"}
+                        type={"email"}
+                        value={email}
+                        handleChange={(e) => setEmail(e.target.value)}
+                        name="email"
+                    />
+                    <InputFrom
+                        htmlFor="password"
+                        labelText={"Password"}
+                        type={"password"}
+                        value={password}
+                        handleChange={(e) => setPassword(e.target.value)}
+                        name="password"
+                    />
                     <div className='d-flex justify-content-between'>
                         <p>
                             Already Registered <Link to='/login'>Login</Link>{' '}
@@ -91,8 +65,6 @@ const Register = () => {
                             Register
                         </button>
                     </div>
-
-
                 </form>
             </div>
         </>
