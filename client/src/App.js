@@ -4,10 +4,13 @@ import LoginPage from './pages/LoginPage';
 import Register from './pages/Register';
 import DashBoard from './pages/DashBoard';
 import NOTFOUND404 from './pages/NOTFOUND404';
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 function App() {
   return (
     <>
+      <ToastContainer />
       <Routes>
         <Route path='/' element={<HomePage />}></Route>
         <Route path='/login' element={<LoginPage />}></Route>
