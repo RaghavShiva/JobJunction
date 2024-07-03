@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import InputFrom from '../components/shared/inputform'
+import { useDispatch } from 'react-redux'
+import { hideLoading, showLoading } from '../redux/features/alertSlice'
+import axios from 'axios'
 
 const Register = () => {
     const [name, setName] = useState('')
@@ -8,11 +11,26 @@ const Register = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
-    const handleSubmit = (e) => {
+
+    //hooks
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
+    const handleSubmit = async (e) => {
         e.preventDefault()
         try {
-            console.log(name, email, password, lastName)
+            if (!name || !lastName || !email || !password) {
+                return alert('please provide all fields')
+            }
+            dispatch(showLoading())
+            const { data } = await axios.post('/api/v1/auth/register', { name, lastName, email, password })
+            dispatch(hideLoading())
+            if (data.success) {
+                alert('register successfully')
+                navigate('/dashboard')
+            }
         } catch (error) {
+            dispatch(hideLoading())
+            alert('invalid, try again')
             console.log(error)
         }
     }

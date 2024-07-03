@@ -1,7 +1,7 @@
 import usermodel from "../models/usermodel.js"
 
 export const registercont = async (req, res, next) => {
-    const { name, email, password } = req.body
+    const { name, email, password, lastName } = req.body
     if (!name)
         next('Name is required, please provide it')
 
@@ -15,7 +15,7 @@ export const registercont = async (req, res, next) => {
     if (existUser)
         next('Email already registered, please login')
 
-    const user = await usermodel.create({ name, email, password })
+    const user = await usermodel.create({ name, email, password, lastName })
 
     const token = user.createJWT()
 
