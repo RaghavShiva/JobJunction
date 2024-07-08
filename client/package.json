@@ -1,7 +1,7 @@
 {
   "name": "client",
   "version": "0.1.0",
-  "proxy": "http://localhost:8000",
+  "proxy": "https://jobjunction-0t2s.onrender.com",
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.6",
@@ -9,6 +9,7 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.7.2",
+    "job_portal": "file:..",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-redux": "^9.1.2",
