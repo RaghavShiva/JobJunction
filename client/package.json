@@ -2,7 +2,7 @@
   "name": "client",
   "version": "0.1.0",
   "proxy": "https://jobjunction-0t2s.onrender.com",
-  "private": true,
+  
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.6",
     "@testing-library/jest-dom": "^5.17.0",
