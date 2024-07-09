@@ -31,7 +31,7 @@ const options = {
         },
         servers: [
             {
-                url: 'http://localhost:8000'
+                url: 'https://jobjunction-0t2s.onrender.com'
             }
         ]
     },
